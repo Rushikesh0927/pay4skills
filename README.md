@@ -116,8 +116,49 @@ The platform focuses on smooth user experiences, real-time collaboration, transp
 
 ## Deployment
 
-- Frontend: Vercel
-- Backend: Render
+### Frontend Deployment with Vercel
+
+1. Create a Vercel account at [vercel.com](https://vercel.com)
+2. Install Vercel CLI:
+   ```
+   npm install -g vercel
+   ```
+3. Navigate to the frontend directory:
+   ```
+   cd frontend
+   ```
+4. Create a `.env` file with the production backend URL:
+   ```
+   REACT_APP_API_URL=https://your-backend-url.onrender.com/api
+   ```
+5. Deploy to Vercel:
+   ```
+   vercel
+   ```
+6. Follow the prompts to complete the deployment
+
+### Backend Deployment with Render
+
+1. Create a Render account at [render.com](https://render.com)
+2. Create a new Web Service and connect your GitHub repository
+3. Configure the service:
+   - Name: pay4skills-api
+   - Environment: Node
+   - Build Command: `npm install`
+   - Start Command: `node src/server.js`
+4. Add environment variables:
+   - PORT: 5000
+   - MONGODB_URI: your_mongodb_connection_string
+   - JWT_SECRET: your_jwt_secret
+   - NODE_ENV: production
+5. Deploy the service
+
+### Connecting Frontend to Backend
+
+After both deployments are complete:
+1. Get your Render backend URL
+2. Update your Vercel environment variables with the backend URL
+3. Redeploy the frontend if necessary
 
 ## Team
 
